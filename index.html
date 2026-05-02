@@ -180,9 +180,39 @@
         background-color: black;
         color: white !important;
       }
+
+      /* Respeito à preferência do usuário por movimento reduzido (WCAG 2.3.3) */
+      @media (prefers-reduced-motion: reduce) {
+        .carousel-track {
+          animation: none;
+        }
+        body {
+          scroll-behavior: auto;
+        }
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
     </style>
   </head>
   <body class="antialiased">
+    <noscript>
+      <div
+        class="fixed top-0 left-0 right-0 p-4 bg-yellow-100 text-zinc-900 text-center z-[9999] border-b border-yellow-300"
+      >
+        <strong>JavaScript desabilitado.</strong> Este site precisa de
+        JavaScript para carregar componentes e suportar tradução. Por favor,
+        habilite-o no seu navegador. /
+        <strong>JavaScript disabled.</strong> This site requires JavaScript to
+        load components and support translations. Please enable it in your
+        browser.
+      </div>
+    </noscript>
+
     <a href="#main-content" class="skip-link"
       >Pular para o conteúdo principal</a
     >

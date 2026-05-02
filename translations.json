@@ -1,6 +1,5 @@
 {
   "pt": {
-    "nav-home": "Início",
     "nav-about": "Sobre",
     "nav-projects": "Projetos",
     "nav-contact": "Contato",
@@ -30,11 +29,6 @@
     "meta-status": "Status",
     "meta-status-val": "Em andamento",
     "meta-focus": "Foco",
-    "case-resp-title": "Responsabilidades",
-    "case-overview-title": "Visão Geral",
-    "case-problem-title": "Entendimento do Problema",
-    "case-results-title": "Resultados",
-    "case1-results": "Melhoria significativa de performance através do pré-carregamento de dados, eliminando esperas de requisição e permitindo renderização instantânea nas interações de zoom.",
     "case2-context-title": "1. Contexto Estratégico",
     "case2-problem-title": "Problema identificado",
     "case2-problem-desc": "Um widget de gráficos temporais que estava sendo usado nos ambientes de clientes de fracking, que foi originalmente criado para um projeto de outro domínio e “reaproveitado” nesse contexto, possuía sérios problemas de manutenção pela forma como foi desenvolvido e não se comunicava com os demais widgets da plataforma, tendo em vista que se tratava de uma estrutura modular. Como resultado, era um widget que acumulava features que já existiam no dashboard, mas não acompanhava outros widgets em interações conjuntas, como PTZ (pan, tilt, zoom).",
@@ -120,7 +114,6 @@
     "case2-focus": "ROI No-Code"
   },
   "en": {
-    "nav-home": "Home",
     "nav-about": "About",
     "nav-projects": "Projects",
     "nav-contact": "Contact",
@@ -150,11 +143,6 @@
     "meta-status": "Status",
     "meta-status-val": "Ongoing",
     "meta-focus": "Focus",
-    "case-resp-title": "Responsibilities",
-    "case-overview-title": "Overview",
-    "case-problem-title": "Understanding the Problem",
-    "case-results-title": "Results",
-    "case1-results": "Significant performance improvement through data pre-loading, eliminating request waits and allowing instant rendering on zoom interactions.",
     "case2-context-title": "1. Strategic Context",
     "case2-problem-title": "Identified Problem",
     "case2-problem-desc": "A time series widget that was being used in fracking client environments, which was originally created for a project in another domain and “repurposed” in this context, had serious maintenance issues due to the way it was developed and did not communicate with the other widgets on the platform, given that it was a modular structure. As a result, it was a widget that accumulated features that already existed in the dashboard, but did not keep up with other widgets in joint interactions, such as PTZ (pan, tilt, zoom).",
