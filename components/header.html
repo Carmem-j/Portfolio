@@ -16,6 +16,8 @@
     >
       CARMEM FERREIRA.
     </a>
+
+    <!-- Desktop nav -->
     <ul
       class="hidden md:flex space-x-8 text-sm font-medium text-zinc-500 items-center"
     >
@@ -52,21 +54,122 @@
         ></a>
       </li>
       <li>
-        <div class="flex gap-2 bg-zinc-100 p-1 rounded-full">
+        <div
+          class="flex gap-2 bg-zinc-100 p-1 rounded-full"
+          role="group"
+          aria-label="Selecionar idioma"
+        >
           <button
             onclick="setLanguage('pt')"
-            class="px-2 py-1 rounded-full hover:bg-white text-[10px] font-bold text-zinc-900 transition-all"
+            class="px-2 py-1 rounded-full hover:bg-white text-xs font-bold text-zinc-900 transition-all"
+            lang="pt"
+            aria-label="Mudar idioma para Português"
           >
             PT
           </button>
           <button
             onclick="setLanguage('en')"
-            class="px-2 py-1 rounded-full hover:bg-white text-[10px] font-bold text-zinc-900 transition-all"
+            class="px-2 py-1 rounded-full hover:bg-white text-xs font-bold text-zinc-900 transition-all"
+            lang="en"
+            aria-label="Switch language to English"
           >
             EN
           </button>
         </div>
       </li>
     </ul>
+
+    <!-- Mobile: language buttons + hamburger -->
+    <div class="flex md:hidden items-center gap-3">
+      <div
+        class="flex gap-2 bg-zinc-100 p-1 rounded-full"
+        role="group"
+        aria-label="Selecionar idioma"
+      >
+        <button
+          onclick="setLanguage('pt')"
+          class="px-2 py-1 rounded-full hover:bg-white text-xs font-bold text-zinc-900 transition-all"
+          lang="pt"
+          aria-label="Mudar idioma para Português"
+        >
+          PT
+        </button>
+        <button
+          onclick="setLanguage('en')"
+          class="px-2 py-1 rounded-full hover:bg-white text-xs font-bold text-zinc-900 transition-all"
+          lang="en"
+          aria-label="Switch language to English"
+        >
+          EN
+        </button>
+      </div>
+      <button
+        type="button"
+        onclick="toggleMobileMenu()"
+        aria-label="Abrir menu de navegação"
+        aria-controls="mobile-menu"
+        aria-expanded="false"
+        id="mobile-menu-toggle"
+        class="p-2 rounded-md hover:bg-zinc-100 transition-colors"
+      >
+        <svg
+          width="24"
+          height="24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path d="M3 6h18M3 12h18M3 18h18" />
+        </svg>
+      </button>
+    </div>
   </nav>
+
+  <!-- Mobile menu panel -->
+  <div
+    id="mobile-menu"
+    class="hidden md:hidden border-t border-zinc-100 bg-white"
+  >
+    <ul
+      class="flex flex-col px-6 py-4 space-y-4 text-base font-medium text-zinc-700"
+    >
+      <li>
+        <a
+          href="#sobre"
+          onclick="
+            closeMobileMenu();
+            navigateTo('sobre');
+            return false;
+          "
+          title="Sobre"
+          class="block py-2 hover:text-black transition-colors"
+          data-i18n="nav-about"
+        ></a>
+      </li>
+      <li>
+        <a
+          href="#projetos"
+          onclick="
+            closeMobileMenu();
+            navigateTo('projetos');
+            return false;
+          "
+          title="Projetos"
+          class="block py-2 hover:text-black transition-colors"
+          data-i18n="nav-projects"
+        ></a>
+      </li>
+      <li>
+        <a
+          href="#contato"
+          onclick="closeMobileMenu();"
+          class="block py-2 hover:text-black transition-colors"
+          data-i18n="nav-contact"
+          title="Contato"
+        ></a>
+      </li>
+    </ul>
+  </div>
 </header>

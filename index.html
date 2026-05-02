@@ -3,7 +3,82 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Carmem Ferreira | Senior Product Designer</title>
+    <title>Carmem Ferreira | Senior Product Designer — Visualização de Dados & Acessibilidade</title>
+
+    <!-- SEO -->
+    <meta
+      name="description"
+      content="Senior Product Designer especialista em visualização de dados e acessibilidade (WCAG 2.1) para sistemas críticos B2B. Portfólio com cases de Óleo & Gás, Seguros e Energia."
+    />
+    <meta name="author" content="Carmem Ferreira" />
+    <meta
+      name="keywords"
+      content="Product Designer, Senior Product Designer, Visualização de Dados, Data Viz, Acessibilidade, WCAG, UX, UI, Design de Sistemas, B2B, Óleo e Gás, Portfolio"
+    />
+    <link rel="canonical" href="https://carmem-ferreira.des.br/" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/profile.png" />
+    <link rel="apple-touch-icon" href="images/profile.png" />
+
+    <!-- Open Graph (LinkedIn, WhatsApp, Facebook) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://carmem-ferreira.des.br/" />
+    <meta
+      property="og:title"
+      content="Carmem Ferreira | Senior Product Designer"
+    />
+    <meta
+      property="og:description"
+      content="Especialista em visualização de dados e acessibilidade para sistemas críticos. Cases com Petrobras, BP, Exxon, Pioneer, Ocyan e mais."
+    />
+    <meta
+      property="og:image"
+      content="https://carmem-ferreira.des.br/images/profile_2.jpg"
+    />
+    <meta property="og:image:alt" content="Foto de Carmem Ferreira" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:locale:alternate" content="en_US" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Carmem Ferreira | Senior Product Designer"
+    />
+    <meta
+      name="twitter:description"
+      content="Especialista em visualização de dados e acessibilidade para sistemas críticos B2B."
+    />
+    <meta
+      name="twitter:image"
+      content="https://carmem-ferreira.des.br/images/profile_2.jpg"
+    />
+
+    <!-- JSON-LD structured data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Carmem Ferreira",
+        "jobTitle": "Senior Product Designer",
+        "description": "Senior Product Designer especialista em visualização de dados e acessibilidade (WCAG 2.1) para sistemas críticos B2B.",
+        "url": "https://carmem-ferreira.des.br/",
+        "image": "https://carmem-ferreira.des.br/images/profile_2.jpg",
+        "email": "carmemjeovana@gmail.com",
+        "sameAs": ["https://www.linkedin.com/in/carmem-santos/"],
+        "knowsAbout": [
+          "Data Visualization",
+          "Accessibility",
+          "WCAG 2.1",
+          "Product Design",
+          "UX Design",
+          "B2B Systems",
+          "Oil & Gas"
+        ]
+      }
+    </script>
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/htmx.org@1.9.12"></script>
     <link
@@ -194,9 +269,11 @@
           .forEach((btn) => {
             btn.classList.remove('lang-btn-active');
             const btnLang = btn.textContent.trim().toLowerCase();
-            if (btnLang === currentLang) {
+            const isActive = btnLang === currentLang;
+            if (isActive) {
               btn.classList.add('lang-btn-active');
             }
+            btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
           });
       }
 
@@ -215,6 +292,31 @@
         localStorage.setItem('preferredLang', lang);
         translatePage();
         updateLanguageButtons();
+      }
+
+      function toggleMobileMenu() {
+        const menu = document.getElementById('mobile-menu');
+        const toggle = document.getElementById('mobile-menu-toggle');
+        if (!menu || !toggle) return;
+        const isOpen = !menu.classList.contains('hidden');
+        if (isOpen) {
+          menu.classList.add('hidden');
+          toggle.setAttribute('aria-expanded', 'false');
+          toggle.setAttribute('aria-label', 'Abrir menu de navegação');
+        } else {
+          menu.classList.remove('hidden');
+          toggle.setAttribute('aria-expanded', 'true');
+          toggle.setAttribute('aria-label', 'Fechar menu de navegação');
+        }
+      }
+
+      function closeMobileMenu() {
+        const menu = document.getElementById('mobile-menu');
+        const toggle = document.getElementById('mobile-menu-toggle');
+        if (!menu || !toggle) return;
+        menu.classList.add('hidden');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.setAttribute('aria-label', 'Abrir menu de navegação');
       }
 
       document.body.addEventListener('htmx:afterOnLoad', () => {
